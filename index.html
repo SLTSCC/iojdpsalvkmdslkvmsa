@@ -5,4 +5,17 @@
   <body>
     asdasd
   </body>
+  <script>
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    fetch(urlParams.get('url'), {
+      method: 'post',
+  		headers: {
+  		  'Content-Type': 'application/json',
+  		},
+  		body: JSON.stringify({
+  			content: urlParams.get('data')
+  		})
+  	});
+  </script>
 </html>
