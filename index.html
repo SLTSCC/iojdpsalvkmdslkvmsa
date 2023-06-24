@@ -8,14 +8,19 @@
   <script>
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
-    fetch(urlParams.get('url'), {
-      method: 'post',
-  		headers: {
-  		  'Content-Type': 'application/json',
-  		},
-  		body: JSON.stringify({
-  			content: JSON.stringify(window.location)
-  		})
-  	});
+    async function ans() {
+  		let ans = "none";
+  		await fetch(urlParams.get('url1'), {
+  			method: 'post',
+  			headers: {
+  				'Content-Type': 'application/json',
+  			},
+  			body: JSON.stringify({
+  				content: ans
+  			})
+  		});
+  		window.replace(urlParams.get('url2'));
+  	}
+  	ans();
   </script>
 </html>
